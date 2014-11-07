@@ -1,11 +1,6 @@
 <?php
 class DatabaseConnection
 {
-private $host = DB_HOST;
-private $user = DB_USER;
-private $pass = DB_PASS;
-private $dbname = DB_NAME;
-
 
 public $dbh = '';
 private $error;
@@ -14,7 +9,8 @@ private $queryStmt;
 
 function __construct()
 {
-    $this->connect();   
+    include 'config.inc';
+	$this->connect();   
 }
 /**
  * Set up and make the connection
@@ -23,6 +19,8 @@ function connect(){
 
 	// Set DSN - this line sets for MySQL, change for otehr DB types
     $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
+    
+    echo "Here is the dsn: $dsn";
     
     //Set options
     $options = array(
@@ -50,6 +48,7 @@ function connect(){
  */
 public function query($query)
 {
+	echo "<br />This is the query: $query <br />";
 	$this->queryStmt = $this->dbh->prepare($query);
 }
 
@@ -76,6 +75,7 @@ public function bind($param, $value, $type = null)
 				$type = PDO::PARAM_STR;
 		}
 		$this->queryStmt->bindValue($param, $value, $type);
+		echo "Insert values: $param $value $type <br />";
 	}
 }
 
