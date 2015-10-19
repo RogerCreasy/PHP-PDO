@@ -16,7 +16,7 @@ echo "We got the config: $pass";
 //Include the database class
 Include 'class.Database.inc';
 
-//Instantiate an object of the class
+//Instantiate an object of the DatabaseConnection class
 $mySQL = new DatabaseConnection;
 
 //set the db connection varrs
