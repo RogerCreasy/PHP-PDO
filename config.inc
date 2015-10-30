@@ -1,8 +1,8 @@
 <?php
 
-$host = '10.114.28.75';
+$host = 'xx.xxx.xxx.xxx';
 $user = 'root';
-$pass = 'burl-TN2013';
+$pass = 'password';
 $dbname = 'test';
 
 ?>
